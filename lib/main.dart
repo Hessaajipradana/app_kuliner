@@ -1,3 +1,5 @@
+import 'package:aplikasiresto/home_page.dart';
+import 'package:aplikasiresto/styles.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,12 +11,19 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
+        backgroundColor: pageBgColor,
+        appBar: AppBar(
+          backgroundColor: headBgColor,
+          title: Text("Kuliner Nusantara", 
+          style: TextStyle(
+            color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20)
+            ),
+            centerTitle: true),  
+        body: Homepage(),
       ),
     );
   }
 }
+
