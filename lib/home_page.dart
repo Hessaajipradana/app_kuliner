@@ -1,3 +1,4 @@
+import 'package:aplikasiresto/list_item.dart';
 import 'package:aplikasiresto/makanan.dart';
 import 'package:aplikasiresto/styles.dart';
 import 'package:flutter/material.dart';
@@ -31,16 +32,3 @@ class Homepage extends StatelessWidget {
   }
 }
 
-class ListItem extends StatelessWidget {
-  const ListItem({
-    super.key,
-    required this.menu,
-  });
-
-  final Makanan menu;
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(menu.nama);
-  }
-}
