@@ -33,11 +33,50 @@ class DetailPage extends StatelessWidget{
             padding: const EdgeInsets.symmetric(vertical: 5),
             child: Text(makanan.nama, style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.white),),
           ),
+          SizedBox(height: 10,),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              attributesIcon(Icons.access_time_filled, makanan.waktuBuka),
+              attributesIcon(Icons.local_fire_department_rounded, makanan.kalori),
+              attributesIcon(Icons.monetization_on, makanan.harga),
+              ],
+          ),
+          SizedBox(height: 10,),
+          Container(
+            padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+            child: Text(
+              makanan.detail, textAlign: TextAlign.center, style: TextStyle(fontSize: 16),)
+            ),
+            SizedBox(
+              height: 150,
+              child: ListView.builder(
+                itemCount: makanan.gambarLain.length,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index){
+                return Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: Image.asset(makanan.gambarLain[index])),
+                );
+              }),
+            )
           ],
           ),
           ),
       ),
     );
+  }
+
+  Column attributesIcon(IconData icon, String teks) {
+    return Column(
+            children: [
+              Icon(icon, color: iconColor),
+            Text(
+              teks,
+              style: TextStyle(fontSize: 11, fontWeight: FontWeight.bold ))
+            ]);
   }
 }
 
