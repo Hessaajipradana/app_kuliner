@@ -48,25 +48,51 @@ class DetailPage extends StatelessWidget{
             child: Text(
               makanan.detail, textAlign: TextAlign.center, style: TextStyle(fontSize: 16),)
             ),
-            SizedBox(
-              height: 150,
-              child: ListView.builder(
-                itemCount: makanan.gambarLain.length,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index){
-                return Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(10),
-                    child: Image.asset(makanan.gambarLain[index])),
+          listGambarLain(),
+          Container(
+            alignment: Alignment.center,
+            padding: EdgeInsets.symmetric(vertical: 10),
+            child: Text("Bahan Racikan", style: headerH1)),
+          SizedBox(
+            height: 100,
+            child: ListView.builder(
+              itemCount: makanan.bahan.length,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index){
+                return Container(
+                  padding: EdgeInsets.all(10),
+                  margin: EdgeInsets.only(right: 10),
+                  width: 120,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10)),
+                  child: Column(children: [Image.asset(makanan.bahan[index].values.first,width: 52),
+                  Text(makanan.bahan[index].keys.first)],),
                 );
-              }),
-            )
+            }),
+          )
           ],
           ),
           ),
       ),
     );
+  }
+
+  SizedBox listGambarLain() {
+    return SizedBox(
+            height: 150,
+            child: ListView.builder(
+              itemCount: makanan.gambarLain.length,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index){
+                return Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: Image.asset(makanan.gambarLain[index])),
+                );
+            }),
+          );
   }
 
   Column attributesIcon(IconData icon, String teks) {
