@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class DetailPage extends StatelessWidget{
   final Makanan makanan;
 
-  DetailPage({super.key, required this.makanan});
+  const DetailPage({super.key, required this.makanan});
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +18,8 @@ class DetailPage extends StatelessWidget{
             Stack(children: [
               Image.asset(makanan.gambarUtama, scale: 0.5),
               Container(
-                margin: EdgeInsets.all(20),
-                child: Row(
+                margin: const EdgeInsets.all(20),
+                child: const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [ButtonBack(), ButtonLike()
                 
@@ -31,9 +31,9 @@ class DetailPage extends StatelessWidget{
             color: headBgColor,
             alignment: Alignment.center,
             padding: const EdgeInsets.symmetric(vertical: 5),
-            child: Text(makanan.nama, style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.white),),
+            child: Text(makanan.nama, style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.white),),
           ),
-          SizedBox(height: 10,),
+          const SizedBox(height: 10,),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -42,17 +42,17 @@ class DetailPage extends StatelessWidget{
               attributesIcon(Icons.monetization_on, makanan.harga),
               ],
           ),
-          SizedBox(height: 10,),
+          const SizedBox(height: 10,),
           Container(
-            padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
             child: Text(
-              makanan.detail, textAlign: TextAlign.center, style: TextStyle(fontSize: 16),)
+              makanan.detail, textAlign: TextAlign.center, style: const TextStyle(fontSize: 16),)
             ),
           listGambarLain(),
           Container(
             alignment: Alignment.center,
-            padding: EdgeInsets.symmetric(vertical: 10),
-            child: Text("Bahan Racikan", style: headerH1)),
+            padding: const EdgeInsets.symmetric(vertical: 10),
+            child: const Text("Bahan Racikan", style: headerH1)),
           SizedBox(
             height: 100,
             child: ListView.builder(
@@ -60,8 +60,8 @@ class DetailPage extends StatelessWidget{
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index){
                 return Container(
-                  padding: EdgeInsets.all(10),
-                  margin: EdgeInsets.only(right: 10),
+                  padding: const EdgeInsets.all(10),
+                  margin: const EdgeInsets.only(right: 10),
                   width: 120,
                   decoration: BoxDecoration(
                     color: Colors.white,
@@ -86,7 +86,7 @@ class DetailPage extends StatelessWidget{
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index){
                 return Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+                  padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(10),
                     child: Image.asset(makanan.gambarLain[index])),
@@ -101,7 +101,7 @@ class DetailPage extends StatelessWidget{
               Icon(icon, color: iconColor),
             Text(
               teks,
-              style: TextStyle(fontSize: 11, fontWeight: FontWeight.bold ))
+              style: const TextStyle(fontSize: 11, fontWeight: FontWeight.bold ))
             ]);
   }
 }
